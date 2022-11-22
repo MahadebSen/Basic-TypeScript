@@ -123,3 +123,33 @@ let newUser: UserTuple = [52, "Yo"];
 newUser.push("hi"); // ------->  this is a glitch
 
 // 9. Enums (enumerated types) -----------------------------//
+
+// case 1
+enum NextSeries {
+  AntMan,
+  BlackPanther,
+  Loki,
+  KangDynasty,
+}
+
+const mySeries = NextSeries.AntMan;
+
+// case 2
+enum NextMeal {
+  Breakfast = 8, // --------> By default it gets the value 0, but you can change it and the rest of the value will follow up.
+  Lunch = "hiii", // --------> Or you can also add string value to this.
+  Dinner = 5,
+}
+
+const MyMeal = NextMeal.Lunch;
+
+// case 3
+const enum NextBook { // ---------> This will not generate so many of JavaScript
+  DoEpicShit = "Ankur Warikoo",
+  GetEpicShitDone = "Ankur Warikoo",
+  AtomicHabits = "James Clear",
+}
+
+const MyBook = NextBook.DoEpicShit;
+
+// 10. Interface -----------------------------//
