@@ -37,7 +37,7 @@ function handleError(errMsg: string): never {
   throw new Error(errMsg);
 }
 
-// 3. Type aliases -------------------------------------------------//
+// 3. Type aliases ---------------------------------------------//
 type User = {
   name: string;
   address: string;
@@ -51,7 +51,7 @@ function myfunc4(user: User): User {
 
 myfunc4({ name: "", address: "", age: 18, isVoter: true });
 
-// 4. readonly type and Optional ------------------------------------//
+// 4. readonly type and Optional ------------------------------//
 type User2 = {
   readonly _id: number; // you conn't update this value
   name: string;
@@ -153,3 +153,40 @@ const enum NextBook { // ---------> This will not generate so many of JavaScript
 const MyBook = NextBook.DoEpicShit;
 
 // 10. Interface -----------------------------//
+interface UserInterface {
+  readonly _id: number;
+  name: string;
+  email: string;
+  googleId?: string;
+  firstFunction: () => string; // 1st way to create function
+  secondFunction(): string; // 2nd way to create function
+  thirdFunction(myArug: string): number;
+}
+
+// It is a reopening of the interface (Inherit)
+interface UserInterface {
+  voterId: string;
+}
+
+// We can also extend the interface
+interface Admin extends UserInterface {
+  role: "admin" | "student" | "viewer" | boolean;
+}
+
+const myInterface: UserInterface | Admin = {
+  _id: 1215,
+  name: "Ram",
+  role: "admin",
+  email: "ram@ayodha.com",
+  voterId: "UNU12545",
+  googleId: "fg25",
+  firstFunction() {
+    return "Sri Ram";
+  },
+  secondFunction: () => {
+    return "Hare Krishna";
+  },
+  thirdFunction(myArug) {
+    return myArug.length;
+  },
+};
